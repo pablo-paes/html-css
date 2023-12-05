@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de Captura de Joystick</title>
+</head>
+<body>
+  <h1>Informações do Joystick</h1>
+  <div id="joystick-info"></div>
+
+  <script>
+    let gamepad;
+
+    window.addEventListener("gamepadconnected", function(e) {
+      gamepad = navigator.getGamepads()[e.gamepad.index];
+      loop();
+    });
+
+    function updateJoystickInfo() {
+      const joystickInfo = document.getElementById("joystick-info");
+      const axes = gamepad.axes.map(axis => axis.toFixed(2)).join(', ');
+      const buttons = gamepad.buttons.map(button => button.pressed ? 1 : 0).join(', ');
+
+      joystickInfo.innerHTML = `
+        <strong>Nome:</strong> ${gamepad.id}<br>
+        <strong>Eixos:</strong> ${axes}<br>
+        <strong>Botões Pressionados:</strong> ${buttons}
+      `;
+    }
+
+    function loop() {
+      requestAnimationFrame(loop);
+      if (gamepad) {
+        gamepad = navigator.getGamepads()[gamepad.index];
+        updateJoystickInfo();
+      }
+    }
+  </script>
+</body>
+</html>

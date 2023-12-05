@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Velocímetro do Trator</title>
+  <style>
+    /* Estilos para o velocímetro */
+    .velocimetro {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 20px solid #f1f1f1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .indicador {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      width: 8px;
+      height: 40%;
+      background-color: red;
+      transform-origin: bottom center;
+      transform: translateX(-50%) rotate(0deg);
+      transition: transform 0.5s ease;
+    }
+
+    .mostrador {
+      position: absolute;
+      bottom: 20%;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Velocímetro do Trator</h1>
+  <!-- Elementos HTML para representar o velocímetro e o mostrador -->
+  <div class="velocimetro">
+    <div class="indicador"></div>
+    <div class="mostrador">0 km/h</div>
+  </div>
+
+  <script>
+    // Função para atualizar a velocidade (simulada com valores aleatórios)
+    function atualizarVelocidade() {
+      // Simula uma velocidade entre 0 e 180 km/h
+      var velocidade = Math.floor(Math.random() * 181);
+      var indicador = document.querySelector('.indicador');
+      var mostrador = document.querySelector('.mostrador');
+      var graus = (velocidade / 180) * 180; // Converte a velocidade em graus para o indicador
+
+      // Atualiza a posição do indicador de acordo com a velocidade
+      indicador.style.transform = `translateX(-50%) rotate(${graus}deg)`;
+      
+      // Atualiza o valor do mostrador com a velocidade
+      mostrador.textContent = velocidade + " km/h";
+    }
+
+    // Atualiza a velocidade a cada 2 segundos (simulação)
+    setInterval(atualizarVelocidade, 2000);
+
+    // Chama a função para atualizar a velocidade inicialmente
+    atualizarVelocidade();
+  </script>
+</body>
+</html>

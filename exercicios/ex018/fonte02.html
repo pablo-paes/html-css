@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontes External</title>
+    <style>
+        @font-face {
+            font-family: 'vanilla';
+            src: url(fontes/vanilla\ whale.otf) format('opentype');
+            font-weight: normal;
+            font-style: normal;
+
+            /*
+                Tipos de format()
+                - opentype (otf)
+                - truetype (ttf)
+
+            */
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            font-family: 'vanilla';
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Olá, Mundo!</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, autem cum! Ad facere perspiciatis unde, aperiam, assumenda a illum sapiente non saepe magnam, natus iste. Sapiente sunt id necessitatibus eaque.</p>
+</body>
+</html>

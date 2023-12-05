@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+body{
+    background-color: gainsboro;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+h1{
+    color: darkblue;
+    background-color: lightblue;
+    text-align: center;
+}
+
+h2{
+    color: blueviolet;
+}
+
+p{
+    text-align: justify;
+}
